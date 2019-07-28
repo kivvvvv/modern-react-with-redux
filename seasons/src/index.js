@@ -21,7 +21,7 @@ class App extends React.Component {
       return <SeasonDisplay lat={this.state.lat} />;
     }
 
-    return <Spinner />;
+    return <Spinner message="Wait for the user permission" />;
   }
 }
 
