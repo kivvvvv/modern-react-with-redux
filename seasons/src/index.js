@@ -12,7 +12,7 @@ class App extends React.Component {
       error => this.setState({ errorMessage: error.message })
     );
   }
-  render() {
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
     }
@@ -22,6 +22,9 @@ class App extends React.Component {
     }
 
     return <Spinner message="Wait for the user permission" />;
+  }
+  render() {
+    return <div>{this.renderContent()}</div>;
   }
 }
 
