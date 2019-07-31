@@ -3,7 +3,9 @@ import axios from "axios";
 import SearchBar from "./SearchBar";
 
 export default class App extends Component {
-  async handleSearchBarSubmit(term) {
+  state = { images: [] };
+
+  handleSearchBarSubmit = async term => {
     const response = await axios.get("https://api.unsplash.com/search/photos", {
       params: { query: term },
       headers: {
@@ -12,8 +14,8 @@ export default class App extends Component {
       }
     });
 
-    console.log(response.data.results);
-  }
+    this.setState({ images: response.data.results });
+  };
 
   render() {
     return (
